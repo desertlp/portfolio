@@ -1,5 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Projects Page</h1>
+
+  <h1>Projects (Index) Page</h1>
+  
+  {% for project in projects %}
+    {% comment %} project card {% endcomment %}
+    <div class="card mb-3">
+      {% comment %} not sure if this anchor tag is going to work but we'll give it a shot {% endcomment %}
+      <a href="{% url project.project_url %}">
+        <img class="card-img-top" src="../static/images/default_img.png" alt="Card image cap">
+      </a>
+      {% comment %} project info (text) {% endcomment %}
+      <div class="card-body">
+        <h5 class="card-title">{{ project.name }}</h5>
+        <div class="card-divided">
+          {% comment %} project details, timeframe, company, languages {% endcomment %}
+          <div class="card-left-divide">
+            <p class="card-text">{{ project.company}}</p>
+            <p class="card-text">{{ project.timeframe}}</p>
+            {% comment %} <p class="card-text">{{ project.languages}}</p> {% endcomment %}
+          </div>
+          {% comment %} project description, 1-2 sentences  {% endcomment %}
+          <div class="card-right-divide">
+            <p class="card-text">{{ project.description }}</p>
+          </div>
+        </div>
+        <p class="card-text"><small class="text-muted">{{ project.deployment_date }}</small></p>
+      </div>
+    </div>
+
+
+  {% endfor %}
 
 {% endblock %}
