@@ -4,11 +4,20 @@
 <h1>Projects (Index) Page</h1>
 
   {% for project in projects %}
-    <div class="card mb-3" style="width: 300px; height: 300px">
-      <img class="card-img-top" src="../static/images/default_img.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ project.name }}</h5>
-      </div>
+    <div class="card mb-3" style="width: 400px; height: 400px">
+      <a href = {{ project.project_url }}>
+        <img class="card-img-top" src="../static/images/default_img.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ project.name }}</h5>
+            <div class="card-left-divide">
+              <p class="card-text">{{ project.description}}</p>
+              <p class="card-text">{{ project.timeframe}}</p>
+            </div>
+            <p class="card-text">
+              <small class="text-muted">{{ project.deployment_date }}</small>
+            </p>
+        </div>
+      </a>
     </div>
   {% endfor %}
 
