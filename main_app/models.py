@@ -42,14 +42,12 @@ class Project(models.Model):
 
 
 class Contact(models.Model): 
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    first_name = models.CharField('First', max_length=50)
+    last_name = models.CharField('Last', max_length=50)
     company = models.CharField(max_length=100, default="")
-    email = models.EmailField(max_length=150)
+    email = models.EmailField('email', max_length=150)
         # https://docs.djangoproject.com/en/2.2/ref/validators/#django.core.validators.EmailValidator
     message = models.TextField(max_length=500, default="")
-    schedule_meeting = models.DateField()
-        # make this pop up if you click a button and want to schedule a time to talk, link to google calendar?? 
     submition_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

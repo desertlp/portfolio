@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Project, Skill
+from .forms import ContactForm
 
 def home(request):
     return render(request, 'home.html')
@@ -13,8 +14,6 @@ def skills(request):
         'skills': skills
     }
     return render(request, 'skills.html', context)
-
-
 
 def skill_projects(request, skill_id):
   skill = Skill.objects.get(id=skill_id)
@@ -35,4 +34,13 @@ def index(request):
     return render(request, 'index.html', context)
 
 def contact(request): 
-    return render(request, 'contact.html')
+    contact_form = ContactForm(request.POST)
+        # create the ModelForm using the data in request.POST
+    if contact_form.is_valid():
+         new_conact = contact_form.save()
+    context = {
+        'contact_form': contact_form
+    }
+    return render(request, 'contact.html', context)
+
+

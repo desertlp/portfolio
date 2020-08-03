@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Contact Page</h1>
+<h1>Contact Me</h1>
+
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+        {% comment %} as always, we need to include the csrf_token for security purposes {% endcomment %}
+        {% comment %} this is causing "This field is required." above every lable {% endcomment %}
+    {{ contact_form.as_p }}
+        {% comment %} The feeding_form.as_p  will generate the <input> tags wrapped in <p> tags for each field we specified in FeedingForm. {% endcomment %}
+    <input type="submit" class="btn" value="Submit">
+</form>
+
+
+{% comment %} need to move the 'onclick' to the submit button and on submit, clear the form and generate a popup saying thank you!  {% endcomment %}
+<button onclick = "myfunction()">button</button>
+<div class='thank-you'>
+    <h1>Thank you for getting in touch!</h1>
+    <p>I appreciate you contacting me. I will be sure to get back in touch with you as soon as possible!</p>
+    <p>Have a great day!</p>
+    <p>Sincerely, </p>
+    <p>Lora Paine</p>
+</div>
+<script>
+    function myfunction() {
+        console.log("This is a working button");
+    }
+</script>
 
 {% endblock %}
