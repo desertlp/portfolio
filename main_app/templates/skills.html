@@ -3,27 +3,41 @@
 
 <h1>Skills (Index) Page</h1>
 
-  {% for project in projects %}
-    <div class="card mb-3" style="width: 400px; height: 400px">
-    
-      <a href = {{ project.project_url }}>
-        <img class="card-img-top" src="../static/images/default_img.png" alt="Card image cap">
+<div class="skills-div">
+  <div class="languages-div">
+    <h4>Languages</h4>
+    <ul class="skills-languages">
+      <li class="skills-languages-item"></li>
+    </ul>
+  </div>
+  <div class="frameworks-div">
+    <h4>Frameworks</h4>
+    <ul class="skills-frameworks">
+      <li class="skills-frameworks-item"></li>
+    </ul>
+  </div>
+  <div class="databases-div">
+    <h4>Databases</h4>
+    <ul class="skills-databases">
+      <li class="skills-databases-item"></li>
+    </ul>
+  </div>
+  <div class="styling-div">
+    <h4>Styling</h4>
+    <ul class="skills-styling">
+      <li class="skills-styling-item"></li>
+    </ul>
+  </div>
+</div>
 
-      <div class="card-body">
-        </a>
-        <a href = {{ project.project_url }}>
-          <h5 class="card-title">{{ project.name }}</h5>
-        </a>
-          <div class="card-left-divide">
-            {% comment %} <p class="card-text">{{ project.description}}</p> {% endcomment %}
-            <p class="card-text">{{ project.timeframe}}</p>
-          </div>
-          <p class="card-text">
-            <small class="text-muted">{{ project.deployment_date }}</small>
-          </p>
-      </div>
 
-    </div>
-  {% endfor %}
-
+{% for skill in skills %}
+  {% comment %} need to do do if statment to check and see if the skill_type is language, framework, db, or styling and append the list item to the div above {% endcomment %}
+  
+  <a class="skill-link" href="{% url 'skill_projects' skill.id %}">
+    {% comment %} same as <a class="skill-link" href="{{ skill.id }}"> but in djnago form  {% endcomment %}
+    <li class="skill-list-item">{{ skill.name }}</li>
+  </a>
+{% endfor %}
+ 
 {% endblock %}

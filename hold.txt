@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Skills (Index) Page</h1>
+
+  
+  {% for skill in skills %}
+      <div class="card mb-3" style="width: 400px; height: 400px">
+        <img class="card-img-top" src="../static/images/skill.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ skill.skill_type }}</h5>
+            <ul class="skill-list">
+              <li>list item</li>
+            </ul>
+        </div>
+      </div> 
+  {% endfor %}
+{% endblock %}
+
+----------------
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Skills (Index) Page</h1>
+
+  
+  {% for skill in skills %}
+   this is an intersting design.... maybe keep this
+    <ul class="skill-list">
+      <li><h5 class="skill-list-item">{{ skill.skill_type }}</h5></li>
+    <ul> 
+    
+
+  {% endfor %}
+{% endblock %}
