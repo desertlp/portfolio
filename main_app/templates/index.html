@@ -12,13 +12,26 @@
       <a href = {{ project.project_url }}><h5 class="card-title">{{ project.name }}</h5></a>
       <p class="card-text">{{ project.description}}</p>
       <p class="card-text">{{ project.timeframe}}</p>
-      <a class="skill-link" href="{% url 'skill_projects' project.skill.id %}">
+      {% comment %} <a class="skill-link" href="{% url 'skill_projects' project.skill.id %}">
         <p class="card-text">{{ project.skill}}</p>
-      </a>
+      </a> {% endcomment %}
+
+      {% comment %} New loop, hopefull it works {% endcomment %}
+      {% if project.skills.count %}
+        {% for skill in project.skills.all %}
+          <a class="skill-link" href="{% url 'skill_projects' skill.id %}">
+            <p class="card-text">{{ skill.name}}</p>
+          </a>
+        {% endfor %}
+      {% endif %}
+
+
+
       <p class="card-text"><small class="text-muted">{{ project.deployment_date }}</small></p>
     </div>
-
   </div>
+
+
 {% endfor %}
 
 {% endblock %}

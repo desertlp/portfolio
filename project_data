@@ -1,6 +1,14 @@
 projects = [
-  Project('Takeuchi Tamagotchi', 'https://desertlp.github.io/tamagotchi/', 'first project, 3 days, solo', '2020-06-26'), 
-  Project('PartyWave', 'https://secure-mountain-38318.herokuapp.com/', 'second project, 5 days, team project will adams', '2020-07-15' ),
+  Project(
+    'Takeuchi Tamagotchi', 
+    'https://desertlp.github.io/tamagotchi/', 
+    'first project, 3 days, solo', 
+    '2020-06-26'), 
+  Project(
+    'PartyWave', 
+    'https://secure-mountain-38318.herokuapp.com/', 
+    'second project, 5 days, team project will adams', 
+    '2020-07-15' ),
 ]
 
 # p = Project(name='Takeuchi Tamagotchi', project_url='https://desertlp.github.io/tamagotchi/', description='first project, 3 days, solo', deployment_date='2020-06-26')
