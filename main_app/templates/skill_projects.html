@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Skill Specific Page</h1>
+<h2>{{skill.name}}</h2>
 <p>Page to show projects related to a specific skill.</p>
 
+{% for project in skill.project_set.all %}
+  <div class="card mb-3" style="width: 300px; height: 400px">
+    <a href = {{ project.project_url }}>
+      <img class="card-img-top" src="../static/images/default_img.png" alt="Card image cap">
+    </a>
+    <div class="card-body">
+      <a href = {{ project.project_url }}><h5 class="card-title">{{ project.name }}</h5></a>
+      <p class="card-text">{{ project.description}}</p>
+      <p class="card-text">{{ project.timeframe}}</p>
+      <a class="skill-link" href="{% url 'skill_projects' skill.id %}">
+        <p class="card-text">{{ project.skill}}</p>
+      </a>
+      <p class="card-text"><small class="text-muted">{{ project.deployment_date }}</small></p>
+    </div>
+
+  </div>
+{% endfor %}
+
 {% endblock %}
+
+
